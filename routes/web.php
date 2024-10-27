@@ -3,6 +3,7 @@
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\ContentController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,6 +19,16 @@ Route::controller(QuestionController::class)->group(function () {
     Route::put('admin/questions/{id}', 'update')->name('questions.update');
     Route::delete('admin/questions/{id}', 'destroy')->name('questions.destroy');
     Route::get('admin/questions/{id}', 'show')->name('questions.show');
+});
+
+Route::controller(ContentController::class)->group(function(){
+    Route::get('admin/contents', 'index')->name('contents.index');
+    Route::get('admin/contents/create', 'create')->name('contents.create');
+    Route::post('admin/contents', 'store')->name('contents.store');
+    Route::get('admin/contents/{id}/edit', 'edit')->name('contents.edit');
+    Route::put('admin/contents/{id}', 'update')->name('contents.update');
+    Route::delete('admin/contents/{id}', 'destroy')->name('contents.destroy');
+    Route::get('admin/contents/{id}', 'show')->name('contents.show');
 });
 
 
